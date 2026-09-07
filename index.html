@@ -545,34 +545,4 @@ Your HTML had this:
 <div class="grid" id="grid"></div>
 <div class="empty" id="empty">No websites found.</div>
 </section>
-```
 
-but there wasn't a corresponding `<section>` before those elements.
-
-And your JavaScript had:
-
-```js
-const search=document.getElementById("search");
-```
-
-while your HTML **doesn't contain**:
-
-```html
-<input id="search">
-```
-
-So this line later:
-
-```js
-search.addEventListener("input",render);
-```
-
-caused:
-
-```text
-Cannot read properties of null
-```
-
-The browser basically went: **"Search box? What search box?"** 💀
-
-The version above removes that unused search/filter code and will display both **LightMaker** and **AstroPad** immediately.
